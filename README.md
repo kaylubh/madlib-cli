@@ -12,7 +12,7 @@
 
 1. Install packages
 
-    `pip install -r requirements.txt`
+    `pip install -r requirements.txt` (only required if you want to run tests)
 
 #### Run
 
@@ -22,4 +22,4 @@ The main script for this module is located at `/madlib_cli/madlib.py`
 
 #### Tests
 
-From root of project directory run `pytest`
+From root of project directory run `pytest -s`
