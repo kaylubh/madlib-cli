@@ -46,7 +46,7 @@ def save_completed_madlib(template_completed):
   with open('assets/completed_madlib.txt', 'w') as completed_madlib:
     completed_madlib.write(template_completed)
 
-def play_madlib(file_path):
+def main(file_path):
 
   template = read_template(file_path)
 
@@ -58,7 +58,7 @@ def play_madlib(file_path):
 
   save_completed_madlib(template_completed)
 
-  return f'\n**** Your Completed Mad Lib ****\n\n{template_completed}\n'
+  print(f'\n**** Your Completed Mad Lib ****\n\n{template_completed}\n')
 
 
 ###############
@@ -71,4 +71,4 @@ print("""
 Welcome to command line Mad Lib! The game is super simple ;) There is a story that is missing a bunch of pieces and you are going to complete it by filling in the blanks. At each prompt, provide a word that matches the requirement and hit enter. The point of the game is to create a fun and silly story so get creative you with your responses!
 """)
 
-print(play_madlib(file_path))
+main(file_path)
