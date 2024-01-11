@@ -31,13 +31,20 @@ def merge(template_stripped, input_words):
 
   return template_completed
 
+def get_input_words(input_parts):
 
-def get_template(file_path):
+  input_words = []
+
+  for part in input_parts:
+    part_input = input(f'A {part}? >')
+    input_words.append(part_input)
+
+  return tuple(input_words)
+
+def play_madlib(file_path):
 
   template = read_template(file_path)
 
-  return template
+  template_stripped, input_parts = parse_template(template)
 
-
-# test = get_template('assets/make_me_a_video_game.txt')
-# print(test)
+  input_words = get_input_words(input_parts)
