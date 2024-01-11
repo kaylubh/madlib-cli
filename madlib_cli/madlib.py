@@ -24,8 +24,11 @@ def parse_template(template):
 
   return parsed_template
 
-def merge():
-  pass
+def merge(template_stripped, input_words):
+  
+  template_completed = template_stripped.format(*input_words)
+
+  return template_completed
 
 
 # def test():
