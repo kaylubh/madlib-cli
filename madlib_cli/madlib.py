@@ -36,7 +36,7 @@ def get_input_words(input_parts):
   input_words = []
 
   for part in input_parts:
-    part_input = input(f'Give me a {part} > ')
+    part_input = input(f'{part} > ')
     input_words.append(part_input)
 
   return tuple(input_words)
@@ -54,9 +54,21 @@ def play_madlib(file_path):
 
   input_words = get_input_words(input_parts)
 
-  template_merged = merge(template_stripped, input_words)
+  template_completed = merge(template_stripped, input_words)
 
-  print(template_merged)
+  save_completed_madlib(template_completed)
 
-# file_path = 'assets/dark_and_stormy_night_template.txt'
-# play_madlib(file_path)
+  return f'\n**** Your Completed Mad Lib ****\n\n{template_completed}\n'
+
+
+###############
+## Start App ##
+###############
+
+file_path = 'assets/make_me_a_video_game.txt'
+
+print("""
+Welcome to command line Mad Lib! The game is super simple ;) There is a story that is missing a bunch of pieces and you are going to complete it by filling in the blanks. At each prompt, provide a word that matches the requirement and hit enter. The point of the game is to create a fun and silly story so get creative you with your responses!
+""")
+
+print(play_madlib(file_path))
