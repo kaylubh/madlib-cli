@@ -16,10 +16,8 @@
 
 #### Run
 
-Run `python3 madlib.py`
-
-The main script for this module is located at `/madlib_cli/madlib.py`
+Run `python3 /madlib_cli/madlib.py` from the root of the project directory
 
 #### Tests
 
-From root of project directory run `pytest -s`
+From root of project directory run `pytest`
