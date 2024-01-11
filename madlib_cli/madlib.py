@@ -27,19 +27,24 @@ def parse_template(template):
 
 def merge(template_stripped, input_words):
   
-  template_completed = template_stripped.format(*input_words)
+  template_merged = template_stripped.format(*input_words)
 
-  return template_completed
+  return template_merged
 
 def get_input_words(input_parts):
 
   input_words = []
 
   for part in input_parts:
-    part_input = input(f'A {part}? >')
+    part_input = input(f'Give me a {part} > ')
     input_words.append(part_input)
 
   return tuple(input_words)
+
+def save_completed_madlib(template_completed):
+
+  with open('assets/completed_madlib.txt', 'w') as completed_madlib:
+    completed_madlib.write(template_completed)
 
 def play_madlib(file_path):
 
@@ -48,3 +53,10 @@ def play_madlib(file_path):
   template_stripped, input_parts = parse_template(template)
 
   input_words = get_input_words(input_parts)
+
+  template_merged = merge(template_stripped, input_words)
+
+  print(template_merged)
+
+# file_path = 'assets/dark_and_stormy_night_template.txt'
+# play_madlib(file_path)
