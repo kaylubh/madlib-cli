@@ -6,23 +6,24 @@ def read_template(file_path):
   return template
 
 def parse_template(template):
-  
-  template_list = template.split()
-  parts = []
 
-  for i, word in enumerate(template_list):
-    if word[0] == '{':
-      end = word.find('}')
-      part = word[1:end]
-      parts.append(part)
-      stripped = word[0] + word[end:]
-      template_list[i] = stripped
+  template_stripped = ''
+  template_parts = []
 
-  template_stripped = ' '.join(template_list)
-  template_parts = tuple(parts)
-  parsed_template = (template_stripped, template_parts)
+  part_start_index = template.find('{')
+  part_end_index = template.find('}')
+  template_stripped += template[:part_start_index + 1]
+  template_parts.append(template[part_start_index + 1:part_end_index])
 
-  return parsed_template
+  while template.find('{', part_end_index) != -1:
+    part_start_index = template.find('{', part_end_index)
+    template_stripped += template[part_end_index:part_start_index + 1]
+    part_end_index = template.find('}', part_start_index)
+    template_parts.append(template[part_start_index + 1:part_end_index])
+
+  template_stripped += template[part_end_index:]
+
+  return (template_stripped, tuple(template_parts))
 
 def merge(template_stripped, input_words):
   
@@ -31,12 +32,12 @@ def merge(template_stripped, input_words):
   return template_completed
 
 
-# def test():
+def get_template(file_path):
 
-#   template = read_template('../assets/dark_and_stormy_night_template.txt')
+  template = read_template(file_path)
 
-#   parsed = parse_template(template)
+  return template
 
-#   return parsed
 
-# print(test())
+# test = get_template('assets/make_me_a_video_game.txt')
+# print(test)
