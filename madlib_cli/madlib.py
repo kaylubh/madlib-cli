@@ -64,12 +64,13 @@ def main(file_path):
 ###############
 ## Start App ##
 ###############
-
-file_path = 'assets/make_me_a_video_game.txt'
-
-print("""
-Welcome to command line Mad Lib! The game is super simple ;) There is a story that is missing a bunch of pieces and you are going to complete it by filling in the blanks. At each prompt, provide a word that matches the requirement and hit enter. The point of the game is to create a fun and silly story so get creative you with your responses!
-""")
-
+  
 if __name__ == '__main__':
+
+  file_path = 'assets/make_me_a_video_game.txt'
+
+  print("""
+  Welcome to command line Mad Lib! The game is super simple ;) There is a story that is missing a bunch of pieces and you are going to complete it by filling in the blanks. At each prompt, provide a word that matches the requirement and hit enter. The point of the game is to create a fun and silly story so get creative you with your responses!
+  """)
+
   main(file_path)
