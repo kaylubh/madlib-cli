@@ -16,7 +16,7 @@
 
 #### Run
 
-Run `python3 /madlib_cli/madlib.py` from the root of the project directory
+Run `python3 madlib_cli/madlib.py` from the root of the project directory
 
 #### Tests
 
